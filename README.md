@@ -1,49 +1,62 @@
-# Credit Risk Scoring Model
+# Credit Guard AI
 
-📌 Project Overview
+🛡️ Credit Guard AI: End-to-End Risk Scoring System
 
-This project develops a machine learning pipeline to predict credit default risk using the German Credit Dataset. As a sophomore Data Science student at CUHK Shenzhen, I built this model to apply statistical learning and data preprocessing techniques to a real-world financial problem.
+An interactive machine learning application that predicts credit default risk, built with a Streamlit frontend and a PostgreSQL database for real-time application logging.
 
-📊 Key Results
+🚀 Key Features
 
-Best Model: Random Forest (Accuracy: 0.74)
+Machine Learning: Random Forest Classifier trained on the German Credit Dataset.
 
-Best Interpretability: Logistic Regression (ROC-AUC: 0.75)
+Interactive UI: Dynamic web dashboard for manual credit entry and risk analysis.
 
-Key Risk Factors: Checking Account Status, Duration of Credit, and Credit Amount.
+Data Persistence: Automatic logging of every application to a local PostgreSQL instance.
+
+Modular Design: Professional Python structure with separation of concerns (UI, Logic, Storage).
 
 🛠 Tech Stack
 
-Language: Python
+Languages: Python, SQLFrameworks: Streamlit
 
-Libraries: Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn
+ML Libraries: Scikit-learn, Pandas, NumPy
 
-Environment: Jupyter Notebook
+Database: PostgreSQL (SQLAlchemy + Psycopg2)
 
-🧪 Data Pipeline
+📁 Repository Structure
 
-Cleaning: Handled missing values in Saving and Checking accounts by treating "missing" as a distinct risk category ("none").
+├── app.py              # Main Streamlit application
 
-Encoding: * Ordinal Encoding for ranked features (Savings, Checking).
+├── credit_data.csv     # Training dataset
 
-One-Hot Encoding for nominal features (Housing, Purpose).
+├── notebook/
 
-Scaling: Applied StandardScaler to numerical features (Age, Amount, Duration) to ensure model stability.
+│   └── analysis.ipynb  # Initial EDA and Modeling research
 
-Handling Imbalance: Utilized class_weight='balanced' to account for the 70/30 distribution of Good/Bad loans.
+├── requirements.txt    # Python dependencies
 
-📈 Business Insights
+└── README.md           # Project documentation
 
-Based on the Feature Importance analysis:
+⚙️ Setup & Installation
 
-Customers without a checking account or with "little" balance are significantly higher risk.
+1. Database Configuration
+   
+   Ensure you have a PostgreSQL database named finance_db created.
+   
+   Update the DB_PASS variable in app.py with your local password.
+   
+3. Environment Setup
+   - Clone the repository
+     
+   git clone [https://github.com/Aruuzan05/Credit-Scoring-Model.git](https://github.com/Aruuzan05/Credit-Scoring-Model.git)
 
-Longer credit durations (>24 months) show a strong correlation with default probability.
+   - Install dependencies
+     
+    pip install -r requirements.txt
+   
+4. Run the App
+   
+   streamlit run app.py
+   
+📈 Model Performance
 
-🚀 How to Run
-
-Clone the repo.
-
-Install dependencies: pip install -r requirements.txt.
-
-Run Credit_Scoring_Model.ipynb.
+The model prioritizes Recall, ensuring that potential high-risk candidates are identified accurately to minimize financial loss for the lender.
