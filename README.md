@@ -1,62 +1,73 @@
-# Credit Guard AI
+# 🏦 End-to-End Credit Scoring & AI Financial Advisor
 
-🛡️ Credit Guard AI: End-to-End Risk Scoring System
+> A full-stack Data Science application that predicts creditworthiness using Machine Learning and provides personalized financial advice using Generative AI (Google Gemini).
 
-An interactive machine learning application that predicts credit default risk, built with a Streamlit frontend and a PostgreSQL database for real-time application logging.
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-UI-red)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue)
+![Gemini API](https://img.shields.io/badge/AI-Google%20Gemini-orange)
 
-🚀 Key Features
+## 📸 Demo
+![Dashboard Screenshot](path_to_your_screenshot.png)
 
-Machine Learning: Random Forest Classifier trained on the German Credit Dataset.
+## 🚀 Overview
+This project bridges traditional Machine Learning with modern Generative AI to solve a fintech problem. It calculates a user's probability of default using a trained **Random Forest/Logistic Regression** model and subsequently uses a Large Language Model (LLM) to act as a **Virtual Financial Advisor**, interpreting the risk factors and suggesting actionable steps for improvement.
 
-Interactive UI: Dynamic web dashboard for manual credit entry and risk analysis.
+### Key Features
+* **Credit Prediction Engine:** Real-time credit probability scoring based on user inputs (income, debt, age, etc.).
+* **AI Financial Advisor:** Integrated **Google Gemini API** to analyze the specific factors lowering a user's score and generate a natural language improvement plan.
+* **Database Integration:** **PostgreSQL** pipeline for robust data storage and retrieval.
+* **Interactive UI:** User-friendly web interface built with **Streamlit**.
 
-Data Persistence: Automatic logging of every application to a local PostgreSQL instance.
+## 🛠️ Tech Stack
+* **Language:** Python
+* **Machine Learning:** Scikit-Learn (Logistic Regression, Random Forest), Pandas, NumPy
+* **GenAI:** LangChain, Google Gemini API
+* **Database:** PostgreSQL, SQLAlchemy
+* **Web Framework:** Streamlit
 
-Modular Design: Professional Python structure with separation of concerns (UI, Logic, Storage).
+## 📊 Model Performance
+* **Algorithm:** Random Forest Classifier
+* **Accuracy:** 85% (Example)
+* **ROC-AUC:** 0.88 (Example)
+* **Key Predictors:** Income, Debt-to-Income Ratio, Credit History Length.
 
-🛠 Tech Stack
+## 💻 Installation & Setup
 
-Languages: Python, SQLFrameworks: Streamlit
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/yourusername/credit-scoring-app.git](https://github.com/yourusername/credit-scoring-app.git)
+    cd credit-scoring-app
+    ```
 
-ML Libraries: Scikit-learn, Pandas, NumPy
+2.  **Create a virtual environment**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
-Database: PostgreSQL (SQLAlchemy + Psycopg2)
-
-📁 Repository Structure
-
-├── app.py              # Main Streamlit application
-
-├── credit_data.csv     # Training dataset
-
-├── notebook/
-
-│   └── analysis.ipynb  # Initial EDA and Modeling research
-
-├── requirements.txt    # Python dependencies
-
-└── README.md           # Project documentation
-
-⚙️ Setup & Installation
-
-1. Database Configuration
-   
-   Ensure you have a PostgreSQL database named finance_db created.
-   
-   Update the DB_PASS variable in app.py with your local password.
-   
-3. Environment Setup
-   - Clone the repository
-     
-   git clone [https://github.com/Aruuzan05/Credit-Scoring-Model.git](https://github.com/Aruuzan05/Credit-Scoring-Model.git)
-
-   - Install dependencies
-     
+3.  **Install dependencies**
+    ```bash
     pip install -r requirements.txt
-   
-4. Run the App
-   
-   streamlit run app.py
-   
-📈 Model Performance
+    ```
 
-The model prioritizes Recall, ensuring that potential high-risk candidates are identified accurately to minimize financial loss for the lender.
+4.  **Set up Environment Variables**
+    Create a `.env` file in the root directory and add your API keys:
+    ```bash
+    GOOGLE_API_KEY=your_gemini_api_key_here
+    DATABASE_URL=your_postgres_connection_string
+    ```
+
+5.  **Run the App**
+    ```bash
+    streamlit run main.py
+    ```
+
+## 📂 Project Structure
+```text
+├── data/               # Raw and processed datasets
+├── models/             # Saved ML models (.pkl files)
+├── src/                # Source code for training and evaluation
+├── main.py             # Main Streamlit application
+├── requirements.txt    # Project dependencies
+└── README.md           # Project documentation
